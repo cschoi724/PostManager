@@ -30,6 +30,8 @@
 		3BD85F042F248E46004CEBDC /* FetchDashboardUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD85EF62F248E46004CEBDC /* FetchDashboardUseCase.swift */; };
 		3BD85F062F248E64004CEBDC /* DashboardSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD85F052F248E62004CEBDC /* DashboardSummary.swift */; };
 		3BD85F092F248F1F004CEBDC /* DomainError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD85F072F248F1F004CEBDC /* DomainError.swift */; };
+		3BD85F1C2F24926A004CEBDC /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD85F1B2F24926A004CEBDC /* NetworkMonitor.swift */; };
+		3BD85F232F249515004CEBDC /* DashboardSummaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD85F1D2F249515004CEBDC /* DashboardSummaryTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,8 @@
 		3BD85EFB2F248E46004CEBDC /* UpdatePostUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePostUseCase.swift; sourceTree = "<group>"; };
 		3BD85F052F248E62004CEBDC /* DashboardSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardSummary.swift; sourceTree = "<group>"; };
 		3BD85F072F248F1F004CEBDC /* DomainError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainError.swift; sourceTree = "<group>"; };
+		3BD85F1B2F24926A004CEBDC /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		3BD85F1D2F249515004CEBDC /* DashboardSummaryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardSummaryTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,8 +216,8 @@
 		3B993C332F2473AF00C3387F /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				3B993C312F2473AF00C3387F /* PostTests.swift */,
-				3B993C322F2473AF00C3387F /* SyncStatusTests.swift */,
+				3BD85F1E2F249515004CEBDC /* Entities */,
+				3BD85F212F249515004CEBDC /* UseCases */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -222,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				3BD85EF12F24878A004CEBDC /* PostsRepository.swift */,
+				3BD85F1B2F24926A004CEBDC /* NetworkMonitor.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -247,6 +252,23 @@
 				3BD85F072F248F1F004CEBDC /* DomainError.swift */,
 			);
 			path = Errors;
+			sourceTree = "<group>";
+		};
+		3BD85F1E2F249515004CEBDC /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				3BD85F1D2F249515004CEBDC /* DashboardSummaryTests.swift */,
+				3B993C312F2473AF00C3387F /* PostTests.swift */,
+				3B993C322F2473AF00C3387F /* SyncStatusTests.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		3BD85F212F249515004CEBDC /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UseCases;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -395,6 +417,7 @@
 				3BD85F012F248E46004CEBDC /* SyncPostsUseCase.swift in Sources */,
 				3BD85F022F248E46004CEBDC /* UpdatePostUseCase.swift in Sources */,
 				3BD85F032F248E46004CEBDC /* CreatePostUseCase.swift in Sources */,
+				3BD85F1C2F24926A004CEBDC /* NetworkMonitor.swift in Sources */,
 				3BD85F042F248E46004CEBDC /* FetchDashboardUseCase.swift in Sources */,
 				3B70E6112F245E890052E385 /* SceneDelegate.swift in Sources */,
 				3BD85F062F248E64004CEBDC /* DashboardSummary.swift in Sources */,
@@ -412,6 +435,7 @@
 			files = (
 				3B993C342F2473AF00C3387F /* PostTests.swift in Sources */,
 				3B993C352F2473AF00C3387F /* SyncStatusTests.swift in Sources */,
+				3BD85F232F249515004CEBDC /* DashboardSummaryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
