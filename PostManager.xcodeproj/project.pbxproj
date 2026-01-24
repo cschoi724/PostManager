@@ -13,9 +13,12 @@
 		3B70E6132F245E890052E385 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B70E6072F245E890052E385 /* Assets.xcassets */; };
 		3B70E6152F245E890052E385 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B70E60A2F245E890052E385 /* LaunchScreen.storyboard */; };
 		3B70E6162F245E890052E385 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B70E60C2F245E890052E385 /* Main.storyboard */; };
-		3B70E6192F245E8C0052E385 /* PostManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B70E6172F245E8C0052E385 /* PostManagerTests.swift */; };
 		3B70E61D2F245E8E0052E385 /* PostManagerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B70E61A2F245E8E0052E385 /* PostManagerUITests.swift */; };
 		3B70E61E2F245E8E0052E385 /* PostManagerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B70E61B2F245E8E0052E385 /* PostManagerUITestsLaunchTests.swift */; };
+		3B993C2F2F24738B00C3387F /* SyncStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B993C2E2F24738B00C3387F /* SyncStatus.swift */; };
+		3B993C302F24738B00C3387F /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B993C2D2F24738B00C3387F /* Post.swift */; };
+		3B993C342F2473AF00C3387F /* PostTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B993C312F2473AF00C3387F /* PostTests.swift */; };
+		3B993C352F2473AF00C3387F /* SyncStatusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B993C322F2473AF00C3387F /* SyncStatusTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,9 +49,12 @@
 		3B70E60B2F245E890052E385 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3B70E60D2F245E890052E385 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		3B70E60E2F245E890052E385 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		3B70E6172F245E8C0052E385 /* PostManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostManagerTests.swift; sourceTree = "<group>"; };
 		3B70E61A2F245E8E0052E385 /* PostManagerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostManagerUITests.swift; sourceTree = "<group>"; };
 		3B70E61B2F245E8E0052E385 /* PostManagerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostManagerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3B993C2D2F24738B00C3387F /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		3B993C2E2F24738B00C3387F /* SyncStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncStatus.swift; sourceTree = "<group>"; };
+		3B993C312F2473AF00C3387F /* PostTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTests.swift; sourceTree = "<group>"; };
+		3B993C322F2473AF00C3387F /* SyncStatusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncStatusTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,7 +118,7 @@
 		3B70E6182F245E8C0052E385 /* PostManagerTests */ = {
 			isa = PBXGroup;
 			children = (
-				3B70E6172F245E8C0052E385 /* PostManagerTests.swift */,
+				3B993C332F2473AF00C3387F /* Domain */,
 			);
 			path = PostManagerTests;
 			sourceTree = "<group>";
@@ -148,6 +154,7 @@
 		3B70E6232F2460910052E385 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				3B993C2C2F24737C00C3387F /* Entities */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -165,6 +172,24 @@
 				3B70E6072F245E890052E385 /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		3B993C2C2F24737C00C3387F /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				3B993C2D2F24738B00C3387F /* Post.swift */,
+				3B993C2E2F24738B00C3387F /* SyncStatus.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		3B993C332F2473AF00C3387F /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				3B993C312F2473AF00C3387F /* PostTests.swift */,
+				3B993C322F2473AF00C3387F /* SyncStatusTests.swift */,
+			);
+			path = Domain;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,6 +333,8 @@
 				3B70E6102F245E890052E385 /* AppDelegate.swift in Sources */,
 				3B70E6112F245E890052E385 /* SceneDelegate.swift in Sources */,
 				3B70E6122F245E890052E385 /* ViewController.swift in Sources */,
+				3B993C2F2F24738B00C3387F /* SyncStatus.swift in Sources */,
+				3B993C302F24738B00C3387F /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,7 +342,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B70E6192F245E8C0052E385 /* PostManagerTests.swift in Sources */,
+				3B993C342F2473AF00C3387F /* PostTests.swift in Sources */,
+				3B993C352F2473AF00C3387F /* SyncStatusTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
