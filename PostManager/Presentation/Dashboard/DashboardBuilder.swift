@@ -12,14 +12,15 @@ protocol DashboardBuilder {
 }
 
 final class DashboardBuilderImpl: DashboardBuilder {
-    private let fetchDashboardUseCase: FetchDashboardUseCase
+    private let dependency: DashboardViewModel.Dependency
     
-    init(fetchDashboardUseCase: FetchDashboardUseCase) {
-        self.fetchDashboardUseCase = fetchDashboardUseCase
+    init(dependency: DashboardViewModel.Dependency) {
+        self.dependency = dependency
     }
     
     func build() -> UIViewController {
-        let viewController = DashboardViewController()
+        let viewModel = DashboardViewModel(dependency: dependency)
+        let viewController = DashboardViewController(viewModel: viewModel)
         return viewController
     }
 }

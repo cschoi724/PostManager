@@ -23,7 +23,12 @@ extension AppDIContainer {
     
     func makeDashboardBuilder() -> DashboardBuilder {
         DashboardBuilderImpl(
-            fetchDashboardUseCase: makeFetchDashboardUseCase()
+            dependency: DashboardViewModel.Dependency(
+                fetchDashboardUseCase: makeFetchDashboardUseCase(),
+                updatePostUseCase: makeUpdatePostUseCase(),
+                deletePostUseCase: makeDeletePostUseCase(),
+                postsRepository: makePostsRepository()
+            )
         )
     }
 }
