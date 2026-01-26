@@ -65,6 +65,8 @@
 		3BD85F842F275FB1004CEBDC /* PostDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD85F832F275FB1004CEBDC /* PostDTO.swift */; };
 		3BD85F872F276679004CEBDC /* PostsRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD85F852F276679004CEBDC /* PostsRemoteDataSource.swift */; };
 		3BD85F892F276EF2004CEBDC /* AnyEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD85F882F276EF2004CEBDC /* AnyEncodable.swift */; };
+		3BD85F8F2F2770A8004CEBDC /* PostsRemoteDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD85F8C2F2770A8004CEBDC /* PostsRemoteDataSourceTests.swift */; };
+		3BD85F902F2770A8004CEBDC /* PostDTOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD85F8A2F2770A8004CEBDC /* PostDTOTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +144,8 @@
 		3BD85F832F275FB1004CEBDC /* PostDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDTO.swift; sourceTree = "<group>"; };
 		3BD85F852F276679004CEBDC /* PostsRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsRemoteDataSource.swift; sourceTree = "<group>"; };
 		3BD85F882F276EF2004CEBDC /* AnyEncodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyEncodable.swift; sourceTree = "<group>"; };
+		3BD85F8A2F2770A8004CEBDC /* PostDTOTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDTOTests.swift; sourceTree = "<group>"; };
+		3BD85F8C2F2770A8004CEBDC /* PostsRemoteDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsRemoteDataSourceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +214,7 @@
 		3B70E6182F245E8C0052E385 /* PostManagerTests */ = {
 			isa = PBXGroup;
 			children = (
+				3BD85F8E2F2770A8004CEBDC /* Data */,
 				3BD85F5A2F2703EA004CEBDC /* Presentation */,
 				3B993C332F2473AF00C3387F /* Domain */,
 			);
@@ -469,6 +474,31 @@
 			path = DataSources;
 			sourceTree = "<group>";
 		};
+		3BD85F8B2F2770A8004CEBDC /* API */ = {
+			isa = PBXGroup;
+			children = (
+				3BD85F8A2F2770A8004CEBDC /* PostDTOTests.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		3BD85F8D2F2770A8004CEBDC /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				3BD85F8C2F2770A8004CEBDC /* PostsRemoteDataSourceTests.swift */,
+			);
+			path = DataSources;
+			sourceTree = "<group>";
+		};
+		3BD85F8E2F2770A8004CEBDC /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				3BD85F8B2F2770A8004CEBDC /* API */,
+				3BD85F8D2F2770A8004CEBDC /* DataSources */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -666,6 +696,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BD85F272F24972B004CEBDC /* FetchDashboardUseCaseTests.swift in Sources */,
+				3BD85F8F2F2770A8004CEBDC /* PostsRemoteDataSourceTests.swift in Sources */,
+				3BD85F902F2770A8004CEBDC /* PostDTOTests.swift in Sources */,
 				3BD85F282F24972B004CEBDC /* LoadMorePostsUseCaseTests.swift in Sources */,
 				3B993C342F2473AF00C3387F /* PostTests.swift in Sources */,
 				3B993C352F2473AF00C3387F /* SyncStatusTests.swift in Sources */,
