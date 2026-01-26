@@ -19,6 +19,7 @@ public protocol NetworkRequestAdapter: Sendable {
 public final class DefaultNetworkClient: NetworkClient {
     private let session: URLSession
     private let logger: NetworkLogger?
+    private let encoder: JSONEncoder
 
     public init(
         session: URLSession = .shared,
@@ -26,6 +27,8 @@ public final class DefaultNetworkClient: NetworkClient {
     ) {
         self.session = session
         self.logger = logger
+        self.encoder = JSONEncoder()
+        self.encoder.dateEncodingStrategy = .iso8601
     }
 
     public func request<T: Decodable>(
@@ -41,7 +44,11 @@ public final class DefaultNetworkClient: NetworkClient {
     }
 
     public func requestData(_ endpoint: APIRequest) async throws -> Data {
-        let urlRequest = try endpoint.buildURLRequest()
+        var urlRequest = try endpoint.buildURLRequest()
+        
+        if let body = endpoint.body {
+            urlRequest.httpBody = try encoder.encode(body)
+        }
 
         logger?.willSend(urlRequest)
 
@@ -68,4 +75,3 @@ public final class DefaultNetworkClient: NetworkClient {
         }
     }
 }
-

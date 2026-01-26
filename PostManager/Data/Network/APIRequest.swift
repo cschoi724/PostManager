@@ -13,7 +13,7 @@ public protocol APIRequest {
     var method: HTTPMethod { get }
     var headers: [String: String] { get }
     var queryItems: [URLQueryItem] { get }
-    var body: Data? { get }
+    var body: AnyEncodable? { get }
 }
 
 public enum HTTPMethod: String {
@@ -36,7 +36,6 @@ extension APIRequest {
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
         request.allHTTPHeaderFields = headers
-        request.httpBody = body
         return request
     }
 }

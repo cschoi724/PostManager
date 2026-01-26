@@ -62,6 +62,9 @@
 		3BD85F792F274DA8004CEBDC /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD85F782F274DA7004CEBDC /* NetworkError.swift */; };
 		3BD85F7B2F274DB3004CEBDC /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD85F7A2F274DB2004CEBDC /* NetworkLogger.swift */; };
 		3BD85F812F274FAC004CEBDC /* PostsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD85F802F274FA7004CEBDC /* PostsAPI.swift */; };
+		3BD85F842F275FB1004CEBDC /* PostDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD85F832F275FB1004CEBDC /* PostDTO.swift */; };
+		3BD85F872F276679004CEBDC /* PostsRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD85F852F276679004CEBDC /* PostsRemoteDataSource.swift */; };
+		3BD85F892F276EF2004CEBDC /* AnyEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD85F882F276EF2004CEBDC /* AnyEncodable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,6 +139,9 @@
 		3BD85F782F274DA7004CEBDC /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		3BD85F7A2F274DB2004CEBDC /* NetworkLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
 		3BD85F802F274FA7004CEBDC /* PostsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsAPI.swift; sourceTree = "<group>"; };
+		3BD85F832F275FB1004CEBDC /* PostDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDTO.swift; sourceTree = "<group>"; };
+		3BD85F852F276679004CEBDC /* PostsRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsRemoteDataSource.swift; sourceTree = "<group>"; };
+		3BD85F882F276EF2004CEBDC /* AnyEncodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyEncodable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,6 +262,7 @@
 		3B70E6242F2460950052E385 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				3BD85F862F276679004CEBDC /* DataSources */,
 				3BD85F7F2F274F5E004CEBDC /* API */,
 				3BD85F3E2F249E4B004CEBDC /* Network */,
 				3BD85F402F249E4B004CEBDC /* Repositories */,
@@ -383,6 +390,7 @@
 				3BD85F782F274DA7004CEBDC /* NetworkError.swift */,
 				3BD85F7A2F274DB2004CEBDC /* NetworkLogger.swift */,
 				3BD85F762F274D9F004CEBDC /* APIRequest.swift */,
+				3BD85F882F276EF2004CEBDC /* AnyEncodable.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -447,9 +455,18 @@
 		3BD85F7F2F274F5E004CEBDC /* API */ = {
 			isa = PBXGroup;
 			children = (
+				3BD85F832F275FB1004CEBDC /* PostDTO.swift */,
 				3BD85F802F274FA7004CEBDC /* PostsAPI.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		3BD85F862F276679004CEBDC /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				3BD85F852F276679004CEBDC /* PostsRemoteDataSource.swift */,
+			);
+			path = DataSources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -606,6 +623,7 @@
 				3B70E6102F245E890052E385 /* AppDelegate.swift in Sources */,
 				3BD85EFD2F248E46004CEBDC /* FetchPostUseCase.swift in Sources */,
 				3BD85F652F271645004CEBDC /* PostsListView.swift in Sources */,
+				3BD85F872F276679004CEBDC /* PostsRemoteDataSource.swift in Sources */,
 				3BD85F662F271645004CEBDC /* PostCell.swift in Sources */,
 				3BD85EFE2F248E46004CEBDC /* FetchPostsUseCase.swift in Sources */,
 				3BD85EFF2F248E46004CEBDC /* DeletePostUseCase.swift in Sources */,
@@ -614,6 +632,7 @@
 				3BD85F012F248E46004CEBDC /* SyncPostsUseCase.swift in Sources */,
 				3BD85F022F248E46004CEBDC /* UpdatePostUseCase.swift in Sources */,
 				3BD85F322F2499A3004CEBDC /* PostsListViewController.swift in Sources */,
+				3BD85F892F276EF2004CEBDC /* AnyEncodable.swift in Sources */,
 				3BD85F332F2499A3004CEBDC /* DashboardViewController.swift in Sources */,
 				3BD85F682F271EBE004CEBDC /* DashboardViewModel.swift in Sources */,
 				3BD85F032F248E46004CEBDC /* CreatePostUseCase.swift in Sources */,
@@ -631,6 +650,7 @@
 				3BD85F4C2F26FF25004CEBDC /* PostsListViewModel.swift in Sources */,
 				3BD85F422F249E4B004CEBDC /* NetworkMonitorImpl.swift in Sources */,
 				3BD85F062F248E64004CEBDC /* DashboardSummary.swift in Sources */,
+				3BD85F842F275FB1004CEBDC /* PostDTO.swift in Sources */,
 				3BD85F3A2F249C9A004CEBDC /* DashboardBuilder.swift in Sources */,
 				3BD85EF32F24878A004CEBDC /* PostsRepository.swift in Sources */,
 				3B993C2F2F24738B00C3387F /* SyncStatus.swift in Sources */,
