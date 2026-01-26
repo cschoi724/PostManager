@@ -51,6 +51,8 @@
 		3BD85F5E2F270683004CEBDC /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 3BD85F5D2F270683004CEBDC /* RxCocoa */; };
 		3BD85F602F270683004CEBDC /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3BD85F5F2F270683004CEBDC /* RxSwift */; };
 		3BD85F622F270683004CEBDC /* RxTest in Frameworks */ = {isa = PBXBuildFile; productRef = 3BD85F612F270683004CEBDC /* RxTest */; };
+		3BD85F652F271645004CEBDC /* PostsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD85F642F271645004CEBDC /* PostsListView.swift */; };
+		3BD85F662F271645004CEBDC /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD85F632F271645004CEBDC /* PostCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +116,8 @@
 		3BD85F482F24A1EE004CEBDC /* AppScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppScreenFactory.swift; sourceTree = "<group>"; };
 		3BD85F4B2F26FF25004CEBDC /* PostsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsListViewModel.swift; sourceTree = "<group>"; };
 		3BD85F582F2703EA004CEBDC /* PostsListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsListViewModelTests.swift; sourceTree = "<group>"; };
+		3BD85F632F271645004CEBDC /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		3BD85F642F271645004CEBDC /* PostsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -330,9 +334,11 @@
 		3BD85F312F2499A3004CEBDC /* Posts */ = {
 			isa = PBXGroup;
 			children = (
-				3BD85F302F2499A3004CEBDC /* PostsListViewController.swift */,
 				3BD85F372F249C92004CEBDC /* PostsBuilder.swift */,
 				3BD85F4B2F26FF25004CEBDC /* PostsListViewModel.swift */,
+				3BD85F302F2499A3004CEBDC /* PostsListViewController.swift */,
+				3BD85F642F271645004CEBDC /* PostsListView.swift */,
+				3BD85F632F271645004CEBDC /* PostCell.swift */,
 			);
 			path = Posts;
 			sourceTree = "<group>";
@@ -547,6 +553,8 @@
 				3BD85F362F249C55004CEBDC /* AppDIContainer.swift in Sources */,
 				3B70E6102F245E890052E385 /* AppDelegate.swift in Sources */,
 				3BD85EFD2F248E46004CEBDC /* FetchPostUseCase.swift in Sources */,
+				3BD85F652F271645004CEBDC /* PostsListView.swift in Sources */,
+				3BD85F662F271645004CEBDC /* PostCell.swift in Sources */,
 				3BD85EFE2F248E46004CEBDC /* FetchPostsUseCase.swift in Sources */,
 				3BD85EFF2F248E46004CEBDC /* DeletePostUseCase.swift in Sources */,
 				3BD85F002F248E46004CEBDC /* LoadMorePostsUseCase.swift in Sources */,

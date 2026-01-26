@@ -11,12 +11,13 @@ extension AppDIContainer {
     
     func makePostsBuilder() -> PostsBuilder {
         PostsBuilderImpl(
-            fetchPostsUseCase: makeFetchPostsUseCase(),
-            loadMorePostsUseCase: makeLoadMorePostsUseCase(),
-            fetchPostUseCase: makeFetchPostUseCase(),
-            createPostUseCase: makeCreatePostUseCase(),
-            updatePostUseCase: makeUpdatePostUseCase(),
-            deletePostUseCase: makeDeletePostUseCase()
+            dependency: PostsListViewModel.Dependency(
+                fetchPostsUseCase: makeFetchPostsUseCase(),
+                loadMorePostsUseCase: makeLoadMorePostsUseCase(),
+                createPostUseCase: makeCreatePostUseCase(),
+                updatePostUseCase: makeUpdatePostUseCase(),
+                deletePostUseCase: makeDeletePostUseCase()
+            )
         )
     }
     

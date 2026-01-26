@@ -12,31 +12,15 @@ protocol PostsBuilder {
 }
 
 final class PostsBuilderImpl: PostsBuilder {
-    private let fetchPostsUseCase: FetchPostsUseCase
-    private let loadMorePostsUseCase: LoadMorePostsUseCase
-    private let fetchPostUseCase: FetchPostUseCase
-    private let createPostUseCase: CreatePostUseCase
-    private let updatePostUseCase: UpdatePostUseCase
-    private let deletePostUseCase: DeletePostUseCase
+    private let dependency: PostsListViewModel.Dependency
     
-    init(
-        fetchPostsUseCase: FetchPostsUseCase,
-        loadMorePostsUseCase: LoadMorePostsUseCase,
-        fetchPostUseCase: FetchPostUseCase,
-        createPostUseCase: CreatePostUseCase,
-        updatePostUseCase: UpdatePostUseCase,
-        deletePostUseCase: DeletePostUseCase
-    ) {
-        self.fetchPostsUseCase = fetchPostsUseCase
-        self.loadMorePostsUseCase = loadMorePostsUseCase
-        self.fetchPostUseCase = fetchPostUseCase
-        self.createPostUseCase = createPostUseCase
-        self.updatePostUseCase = updatePostUseCase
-        self.deletePostUseCase = deletePostUseCase
+    init(dependency: PostsListViewModel.Dependency) {
+        self.dependency = dependency
     }
     
     func build() -> UIViewController {
-        let viewController = PostsListViewController()
+        let viewModel = PostsListViewModel(dependency: dependency)
+        let viewController = PostsListViewController(viewModel: viewModel)
         return viewController
     }
 }
