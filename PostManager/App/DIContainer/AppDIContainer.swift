@@ -17,15 +17,36 @@ public final class AppDIContainer {
         PostsRemoteDataSourceImpl(networkClient: networkClient)
     }()
     
-    private lazy var postsRepository: PostsRepository = {
-        PostsRepositoryImpl(remoteDataSource: postsRemoteDataSource)
-    }()
-    
     private lazy var networkMonitor: NetworkMonitor = {
         NetworkMonitorImpl()
     }()
     
-    public init() {}
+    private lazy var postsRepository: PostsRepository = {
+        PostsRepositoryImpl(
+            remoteDataSource: postsRemoteDataSource,
+            networkMonitor: networkMonitor
+        )
+    }()
+    
+    public init() {
+        setupNetworkMonitoring()
+    }
+    
+    private func setupNetworkMonitoring() {
+        NotificationCenter.default.addObserver(
+            forName: .networkDidBecomeOnline,
+            object: nil,
+            queue: .main
+        ) { [weak self] _ in
+            Task {
+                try? await self?.makeSyncPostsUseCase()()
+            }
+        }
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
     
     public func makePostsRepository() -> PostsRepository {
         return postsRepository

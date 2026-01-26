@@ -10,12 +10,21 @@ import Foundation
 final class PostsRepositoryImpl: PostsRepository {
     
     private let remoteDataSource: PostsRemoteDataSource
+    private let networkMonitor: NetworkMonitor
     
-    init(remoteDataSource: PostsRemoteDataSource) {
+    init(
+        remoteDataSource: PostsRemoteDataSource,
+        networkMonitor: NetworkMonitor
+    ) {
         self.remoteDataSource = remoteDataSource
+        self.networkMonitor = networkMonitor
     }
     
     func fetchPosts(limit: Int, offset: Int) async throws -> [Post] {
+        guard networkMonitor.isOnline else {
+            // 오프라인 상태에서는 빈 배열 반환 (로컬 DB 도입 전까지)
+            return []
+        }
         return try await remoteDataSource.fetchAllPosts(limit: limit, skip: offset)
     }
     
@@ -26,13 +35,30 @@ final class PostsRepositoryImpl: PostsRepository {
     }
     
     func createPost(title: String, body: String, userId: Int) async throws -> Post {
-        return try await remoteDataSource.createPost(title: title, body: body, userId: userId)
+        if networkMonitor.isOnline {
+            // 온라인: 서버에 즉시 전송
+            return try await remoteDataSource.createPost(title: title, body: body, userId: userId)
+        } else {
+            // 오프라인: 로컬에만 저장 (로컬 DB 도입 전까지는 메모리에만 존재)
+            // TODO: 로컬 DB 도입 시 로컬 저장 후 syncStatus를 .created로 설정
+            return Post(
+                title: title,
+                body: body,
+                userId: userId,
+                syncStatus: .created
+            )
+        }
     }
     
     func updatePost(localId: UUID, title: String?, body: String?) async throws -> Post {
-        
-        // TODO: 로컬 DB 도입 시 localId -> remoteId 매핑 후 원격 업데이트로 교체
-        // 현재는 네트워크 동작이 없는 단순 에코 구현
+        // TODO: 로컬 DB 도입 시 localId로 기존 Post 조회 후 업데이트
+        // 현재는 더미 구현
+        if networkMonitor.isOnline {
+            // TODO: 로컬 DB에서 remoteId 조회 후 서버 업데이트
+            // 온라인: 서버에 즉시 전송
+        } else {
+            // 오프라인: 로컬에만 저장 (로컬 DB 도입 전까지는 메모리에만 존재)
+        }
         return Post(
             localId: localId,
             title: title ?? "",
@@ -43,8 +69,13 @@ final class PostsRepositoryImpl: PostsRepository {
     }
     
     func deletePost(localId: UUID) async throws {
-        // TODO: 로컬 DB 도입 시 remoteId 조회 후 remote delete + 로컬 플래그 처리
-        _ = localId
+        if networkMonitor.isOnline {
+            // TODO: 로컬 DB에서 remoteId 조회 후 서버 삭제
+            // 온라인: 서버에 즉시 삭제 요청
+        } else {
+            // 오프라인: 로컬에만 삭제 플래그 설정 (로컬 DB 도입 전까지는 메모리에만 존재)
+            // TODO: 로컬 DB 도입 시 isDeleted 플래그 설정 후 syncStatus를 .deleted로 설정
+        }
     }
     
     func fetchPostsNeedingSync() async throws -> [Post] {
@@ -57,6 +88,10 @@ final class PostsRepositoryImpl: PostsRepository {
     }
     
     func fetchAllPosts() async throws -> [Post] {
+        guard networkMonitor.isOnline else {
+            // 오프라인 상태에서는 빈 배열 반환 (로컬 DB 도입 전까지)
+            return []
+        }
         // 대시보드용 전체 개수 계산을 위해 충분히 큰 limit 사용
         return try await remoteDataSource.fetchAllPosts(limit: 100, skip: 0)
     }
