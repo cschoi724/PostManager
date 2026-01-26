@@ -9,8 +9,16 @@ import Foundation
 
 public final class AppDIContainer {
     
+    private lazy var networkClient: NetworkClient = {
+        DefaultNetworkClient()
+    }()
+    
+    private lazy var postsRemoteDataSource: PostsRemoteDataSource = {
+        PostsRemoteDataSourceImpl(networkClient: networkClient)
+    }()
+    
     private lazy var postsRepository: PostsRepository = {
-        PostsRepositoryImpl()
+        PostsRepositoryImpl(remoteDataSource: postsRemoteDataSource)
     }()
     
     private lazy var networkMonitor: NetworkMonitor = {
