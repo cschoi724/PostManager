@@ -57,6 +57,11 @@
 		3BD85F6F2F272794004CEBDC /* StatCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD85F6D2F272794004CEBDC /* StatCardView.swift */; };
 		3BD85F722F2749F3004CEBDC /* PostsListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD85F712F2749F3004CEBDC /* PostsListUITests.swift */; };
 		3BD85F732F2749F3004CEBDC /* DashboardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD85F702F2749F3004CEBDC /* DashboardUITests.swift */; };
+		3BD85F752F274D8D004CEBDC /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD85F742F274D85004CEBDC /* NetworkClient.swift */; };
+		3BD85F772F274DA0004CEBDC /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD85F762F274D9F004CEBDC /* APIRequest.swift */; };
+		3BD85F792F274DA8004CEBDC /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD85F782F274DA7004CEBDC /* NetworkError.swift */; };
+		3BD85F7B2F274DB3004CEBDC /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD85F7A2F274DB2004CEBDC /* NetworkLogger.swift */; };
+		3BD85F812F274FAC004CEBDC /* PostsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD85F802F274FA7004CEBDC /* PostsAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +131,11 @@
 		3BD85F6D2F272794004CEBDC /* StatCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatCardView.swift; sourceTree = "<group>"; };
 		3BD85F702F2749F3004CEBDC /* DashboardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardUITests.swift; sourceTree = "<group>"; };
 		3BD85F712F2749F3004CEBDC /* PostsListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsListUITests.swift; sourceTree = "<group>"; };
+		3BD85F742F274D85004CEBDC /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		3BD85F762F274D9F004CEBDC /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		3BD85F782F274DA7004CEBDC /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		3BD85F7A2F274DB2004CEBDC /* NetworkLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
+		3BD85F802F274FA7004CEBDC /* PostsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,8 +256,10 @@
 		3B70E6242F2460950052E385 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				3BD85F7F2F274F5E004CEBDC /* API */,
 				3BD85F3E2F249E4B004CEBDC /* Network */,
 				3BD85F402F249E4B004CEBDC /* Repositories */,
+				3BD85F7C2F274E76004CEBDC /* DataSources */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -367,6 +379,10 @@
 			isa = PBXGroup;
 			children = (
 				3BD85F3D2F249E4B004CEBDC /* NetworkMonitorImpl.swift */,
+				3BD85F742F274D85004CEBDC /* NetworkClient.swift */,
+				3BD85F782F274DA7004CEBDC /* NetworkError.swift */,
+				3BD85F7A2F274DB2004CEBDC /* NetworkLogger.swift */,
+				3BD85F762F274D9F004CEBDC /* APIRequest.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -419,6 +435,21 @@
 				3BD85F692F272103004CEBDC /* DashboardViewModelTests.swift */,
 			);
 			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		3BD85F7C2F274E76004CEBDC /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DataSources;
+			sourceTree = "<group>";
+		};
+		3BD85F7F2F274F5E004CEBDC /* API */ = {
+			isa = PBXGroup;
+			children = (
+				3BD85F802F274FA7004CEBDC /* PostsAPI.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -569,6 +600,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BD85F812F274FAC004CEBDC /* PostsAPI.swift in Sources */,
 				3BD85F382F249C92004CEBDC /* PostsBuilder.swift in Sources */,
 				3BD85F362F249C55004CEBDC /* AppDIContainer.swift in Sources */,
 				3B70E6102F245E890052E385 /* AppDelegate.swift in Sources */,
@@ -577,6 +609,7 @@
 				3BD85F662F271645004CEBDC /* PostCell.swift in Sources */,
 				3BD85EFE2F248E46004CEBDC /* FetchPostsUseCase.swift in Sources */,
 				3BD85EFF2F248E46004CEBDC /* DeletePostUseCase.swift in Sources */,
+				3BD85F772F274DA0004CEBDC /* APIRequest.swift in Sources */,
 				3BD85F002F248E46004CEBDC /* LoadMorePostsUseCase.swift in Sources */,
 				3BD85F012F248E46004CEBDC /* SyncPostsUseCase.swift in Sources */,
 				3BD85F022F248E46004CEBDC /* UpdatePostUseCase.swift in Sources */,
@@ -594,12 +627,15 @@
 				3BD85F3C2F249E11004CEBDC /* AppDIContainer+BuilderFactory.swift in Sources */,
 				3BD85F4A2F24A1EE004CEBDC /* AppScreenFactory.swift in Sources */,
 				3BD85F412F249E4B004CEBDC /* PostsRepositoryImpl.swift in Sources */,
+				3BD85F752F274D8D004CEBDC /* NetworkClient.swift in Sources */,
 				3BD85F4C2F26FF25004CEBDC /* PostsListViewModel.swift in Sources */,
 				3BD85F422F249E4B004CEBDC /* NetworkMonitorImpl.swift in Sources */,
 				3BD85F062F248E64004CEBDC /* DashboardSummary.swift in Sources */,
 				3BD85F3A2F249C9A004CEBDC /* DashboardBuilder.swift in Sources */,
 				3BD85EF32F24878A004CEBDC /* PostsRepository.swift in Sources */,
 				3B993C2F2F24738B00C3387F /* SyncStatus.swift in Sources */,
+				3BD85F7B2F274DB3004CEBDC /* NetworkLogger.swift in Sources */,
+				3BD85F792F274DA8004CEBDC /* NetworkError.swift in Sources */,
 				3BD85F092F248F1F004CEBDC /* DomainError.swift in Sources */,
 				3B993C302F24738B00C3387F /* Post.swift in Sources */,
 			);
