@@ -55,6 +55,8 @@
 		3BD85F662F271645004CEBDC /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD85F632F271645004CEBDC /* PostCell.swift */; };
 		3BD85F682F271EBE004CEBDC /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD85F672F271EBE004CEBDC /* DashboardViewModel.swift */; };
 		3BD85F6B2F272103004CEBDC /* DashboardViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD85F692F272103004CEBDC /* DashboardViewModelTests.swift */; };
+		3BD85F6E2F272794004CEBDC /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD85F6C2F272794004CEBDC /* DashboardView.swift */; };
+		3BD85F6F2F272794004CEBDC /* StatCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD85F6D2F272794004CEBDC /* StatCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +124,8 @@
 		3BD85F642F271645004CEBDC /* PostsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsListView.swift; sourceTree = "<group>"; };
 		3BD85F672F271EBE004CEBDC /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		3BD85F692F272103004CEBDC /* DashboardViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModelTests.swift; sourceTree = "<group>"; };
+		3BD85F6C2F272794004CEBDC /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		3BD85F6D2F272794004CEBDC /* StatCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -332,6 +336,8 @@
 				3BD85F392F249C9A004CEBDC /* DashboardBuilder.swift */,
 				3BD85F672F271EBE004CEBDC /* DashboardViewModel.swift */,
 				3BD85F2E2F2499A3004CEBDC /* DashboardViewController.swift */,
+				3BD85F6C2F272794004CEBDC /* DashboardView.swift */,
+				3BD85F6D2F272794004CEBDC /* StatCardView.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -578,6 +584,8 @@
 				3BD85F332F2499A3004CEBDC /* DashboardViewController.swift in Sources */,
 				3BD85F682F271EBE004CEBDC /* DashboardViewModel.swift in Sources */,
 				3BD85F032F248E46004CEBDC /* CreatePostUseCase.swift in Sources */,
+				3BD85F6E2F272794004CEBDC /* DashboardView.swift in Sources */,
+				3BD85F6F2F272794004CEBDC /* StatCardView.swift in Sources */,
 				3BD85F462F249F50004CEBDC /* Router.swift in Sources */,
 				3BD85F472F249F50004CEBDC /* AppRouter.swift in Sources */,
 				3BD85F1C2F24926A004CEBDC /* NetworkMonitor.swift in Sources */,
