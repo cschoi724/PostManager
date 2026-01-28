@@ -129,8 +129,37 @@ extension CoreDataPostsLocalDataSource {
         }
 
         func observePosts() -> AsyncStream<[Post]> {
-            AsyncStream { continuation in
-                continuation.finish()
+            let notificationCenter = NotificationCenter.default
+            let publisher = notificationCenter.publisher(for: .NSManagedObjectContextDidSave)
+                .flatMap { [weak self] _ -> AnyPublisher<[Post], Never> in
+                    guard let self = self else {
+                        return Just([]).eraseToAnyPublisher()
+                    }
+                    
+                    return Future<[Post], Never> { promise in
+                        Task {
+                            let posts = (try? await self.fetchAllPosts()) ?? []
+                            promise(.success(posts))
+                        }
+                    }
+                    .eraseToAnyPublisher()
+                }
+                .eraseToAnyPublisher()
+            
+            return AsyncStream<[Post]> { continuation in
+                let cancellable = publisher
+                    .sink { posts in
+                        continuation.yield(posts)
+                    }
+                
+                Task {
+                    let posts = (try? await self.fetchAllPosts()) ?? []
+                    continuation.yield(posts)
+                }
+                
+                continuation.onTermination = { @Sendable _ in
+                    cancellable.cancel()
+                }
             }
         }
 }
