@@ -22,7 +22,7 @@ final class CoreDataStack {
     }
 
     init(
-        name: String = "PostManager",
+        name: String = "PostsModel",
         storeType: StoreType = .persistent
     ) {
         container = NSPersistentContainer(name: name)
