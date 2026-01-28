@@ -16,7 +16,8 @@ extension AppDIContainer {
                 loadMorePostsUseCase: makeLoadMorePostsUseCase(),
                 createPostUseCase: makeCreatePostUseCase(),
                 updatePostUseCase: makeUpdatePostUseCase(),
-                deletePostUseCase: makeDeletePostUseCase()
+                deletePostUseCase: makeDeletePostUseCase(),
+                postsRepository: makePostsRepository()
             )
         )
     }

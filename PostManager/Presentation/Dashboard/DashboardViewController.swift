@@ -75,6 +75,7 @@ extension DashboardViewController {
             
             recentPosts = summary.recentPosts
             dashboardView.tableView.reloadData()
+            dashboardView.updateTableViewHeight()
         } else {
             dashboardView.showEmptyState()
         }

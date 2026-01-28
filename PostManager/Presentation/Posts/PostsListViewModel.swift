@@ -34,6 +34,7 @@ final class PostsListViewModel {
         let createPostUseCase: CreatePostUseCase
         let updatePostUseCase: UpdatePostUseCase
         let deletePostUseCase: DeletePostUseCase
+        let postsRepository: PostsRepository
     }
     
     private let dependency: Dependency
@@ -48,6 +49,7 @@ final class PostsListViewModel {
     
     init(dependency: Dependency) {
         self.dependency = dependency
+        observePostsChanges()
     }
     
     func send(_ action: Action) {
@@ -69,6 +71,37 @@ final class PostsListViewModel {
 }
 
 extension PostsListViewModel {
+    
+    private func observePostsChanges() {
+        let postsStream = dependency.postsRepository.observePosts()
+        
+        Task {
+            for await _ in postsStream {
+                await refreshPosts()
+            }
+        }
+    }
+    
+    private func refreshPosts() async {
+        do {
+            let posts = try await dependency.fetchPostsUseCase(limit: pageLimit, offset: 0)
+            
+            await MainActor.run {
+                guard var currentState = try? stateSubject.value() else { return }
+                currentState.posts = posts
+                currentState.canLoadMore = posts.count >= pageLimit
+                stateSubject.onNext(currentState)
+            }
+        } catch {
+            await MainActor.run {
+                var currentState = try? stateSubject.value()
+                currentState?.error = error
+                if let currentState = currentState {
+                    stateSubject.onNext(currentState)
+                }
+            }
+        }
+    }
     
     private func loadInitial() {
         guard var currentState = try? stateSubject.value(), !currentState.isLoading else { return }

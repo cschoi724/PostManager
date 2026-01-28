@@ -19,6 +19,7 @@ public final class FetchPostsUseCaseImpl: FetchPostsUseCase {
     }
     
     public func callAsFunction(limit: Int, offset: Int) async throws -> [Post] {
-        return try await repository.fetchPosts(limit: limit, offset: offset)
+        let page = try await repository.fetchPosts(limit: limit, offset: offset)
+        return page.sorted { $0.createdAt > $1.createdAt }
     }
 }

@@ -163,12 +163,7 @@ final class DashboardView: UIView {
         needsSyncCard.configure(title: "동기화 필요", value: "\(needsSyncCount)")
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        updateTableViewHeight()
-    }
-    
-    private func updateTableViewHeight() {
+    func updateTableViewHeight() {
         guard tableViewHeightConstraint != nil else { return }
         
         tableView.layoutIfNeeded()

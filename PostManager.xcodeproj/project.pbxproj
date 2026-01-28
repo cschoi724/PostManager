@@ -282,7 +282,6 @@
 				3BD85F7F2F274F5E004CEBDC /* API */,
 				3BD85F3E2F249E4B004CEBDC /* Network */,
 				3BD85F402F249E4B004CEBDC /* Repositories */,
-				3BD85F7C2F274E76004CEBDC /* DataSources */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -486,13 +485,6 @@
 				3BD85F692F272103004CEBDC /* DashboardViewModelTests.swift */,
 			);
 			path = Dashboard;
-			sourceTree = "<group>";
-		};
-		3BD85F7C2F274E76004CEBDC /* DataSources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = DataSources;
 			sourceTree = "<group>";
 		};
 		3BD85F7F2F274F5E004CEBDC /* API */ = {
