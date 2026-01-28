@@ -14,6 +14,7 @@ protocol PostsLocalDataSource {
     func fetchPost(localId: UUID) async throws -> Post?
     func fetchPost(remoteId: Int) async throws -> Post?
     func fetchAllPosts() async throws -> [Post]
+    func fetchPosts(remoteIds: [Int]) async throws -> [Post]
     func fetchPostsNeedingSync() async throws -> [Post]
     func deletePost(localId: UUID) async throws
     func permanentlyDeletePost(localId: UUID) async throws
@@ -70,6 +71,18 @@ extension CoreDataPostsLocalDataSource {
                 return try context.fetch(request).first?.toDomain()
             }
         }
+        
+        func fetchPosts(remoteIds: [Int]) async throws -> [Post] {
+            guard !remoteIds.isEmpty else { return [] }
+            
+            let context = coreDataStack.newBackgroundContext()
+            return try await context.perform {
+                let request: NSFetchRequest<PostEntity> = PostEntity.fetchRequest()
+                let ids = remoteIds.map { NSNumber(value: $0) }
+                request.predicate = NSPredicate(format: "remoteId IN %@", ids)
+                return try context.fetch(request).map { $0.toDomain() }
+            }
+        }
 
         func fetchAllPosts() async throws -> [Post] {
             let context = coreDataStack.newBackgroundContext()
@@ -85,8 +98,11 @@ extension CoreDataPostsLocalDataSource {
             let context = coreDataStack.newBackgroundContext()
             return try await context.perform {
                 let request: NSFetchRequest<PostEntity> = PostEntity.fetchRequest()
+                
+                // 동기화가 필요한 모든 게시글(생성/수정/삭제)을 포함한다.
+                // 삭제된 게시글도 서버와 동기화해야 하므로 isSoftDeleted 조건은 두지 않는다.
                 request.predicate = NSPredicate(
-                    format: "syncStatus != %@ AND isSoftDeleted == NO",
+                    format: "syncStatus != %@",
                     SyncStatus.synced.rawValue
                 )
                 request.sortDescriptors = [NSSortDescriptor(key: "updatedAt", ascending: false)]

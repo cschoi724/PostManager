@@ -53,7 +53,7 @@ extension PostDTO {
             syncStatus: .synced,
             createdAt: Date(),
             updatedAt: Date(),
-            isDeleted: isDeleted ?? false
+            isSoftDeleted: isDeleted ?? false
         )
     }
 }

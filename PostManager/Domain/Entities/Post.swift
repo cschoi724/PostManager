@@ -16,7 +16,7 @@ public struct Post {
     public let syncStatus: SyncStatus
     public let createdAt: Date
     public let updatedAt: Date
-    public let isDeleted: Bool
+    public let isSoftDeleted: Bool
     
     public init(
         localId: UUID = UUID(),
@@ -27,7 +27,7 @@ public struct Post {
         syncStatus: SyncStatus = .created,
         createdAt: Date = Date(),
         updatedAt: Date = Date(),
-        isDeleted: Bool = false
+        isSoftDeleted: Bool = false
     ) {
         self.localId = localId
         self.remoteId = remoteId
@@ -37,7 +37,7 @@ public struct Post {
         self.syncStatus = syncStatus
         self.createdAt = createdAt
         self.updatedAt = updatedAt
-        self.isDeleted = isDeleted
+        self.isSoftDeleted = isSoftDeleted
     }
     
     public func with(
@@ -47,7 +47,7 @@ public struct Post {
         userId: Int? = nil,
         syncStatus: SyncStatus? = nil,
         updatedAt: Date? = nil,
-        isDeleted: Bool? = nil
+        isSoftDeleted: Bool? = nil
     ) -> Post {
         return Post(
             localId: self.localId,
@@ -58,7 +58,7 @@ public struct Post {
             syncStatus: syncStatus ?? self.syncStatus,
             createdAt: self.createdAt,
             updatedAt: updatedAt ?? self.updatedAt,
-            isDeleted: isDeleted ?? self.isDeleted
+            isSoftDeleted: isSoftDeleted ?? self.isSoftDeleted
         )
     }
     
@@ -73,7 +73,7 @@ public struct Post {
         return with(
             syncStatus: .deleted,
             updatedAt: Date(),
-            isDeleted: true
+            isSoftDeleted: true
         )
     }
     
@@ -96,6 +96,6 @@ extension Post: Equatable {
         lhs.syncStatus == rhs.syncStatus &&
         lhs.createdAt == rhs.createdAt &&
         lhs.updatedAt == rhs.updatedAt &&
-        lhs.isDeleted == rhs.isDeleted
+        lhs.isSoftDeleted == rhs.isSoftDeleted
     }
 }

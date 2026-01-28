@@ -30,7 +30,7 @@ final class PostDTOTests: XCTestCase {
         XCTAssertEqual(post.body, "Test Body")
         XCTAssertEqual(post.userId, 5)
         XCTAssertEqual(post.syncStatus, .synced)
-        XCTAssertEqual(post.isDeleted, false)
+        XCTAssertEqual(post.isSoftDeleted, false)
         XCTAssertNotNil(post.localId)
     }
     
@@ -69,6 +69,6 @@ final class PostDTOTests: XCTestCase {
         
         let post = dto.toDomain()
         
-        XCTAssertEqual(post.isDeleted, false)
+        XCTAssertEqual(post.isSoftDeleted, false)
     }
 }

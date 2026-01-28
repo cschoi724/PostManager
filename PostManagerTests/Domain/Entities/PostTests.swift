@@ -23,7 +23,7 @@ final class PostTests: XCTestCase {
         XCTAssertEqual(post.body, "Test Body")
         XCTAssertEqual(post.userId, 1)
         XCTAssertEqual(post.syncStatus, .created)
-        XCTAssertFalse(post.isDeleted)
+        XCTAssertFalse(post.isSoftDeleted)
     }
     
     func test_with_메서드_불변성_유지() {
@@ -83,9 +83,9 @@ final class PostTests: XCTestCase {
         
         let deleted = post.markAsDeleted()
         
-        XCTAssertTrue(deleted.isDeleted)
+        XCTAssertTrue(deleted.isSoftDeleted)
         XCTAssertEqual(deleted.syncStatus, .deleted)
-        XCTAssertFalse(post.isDeleted)
+        XCTAssertFalse(post.isSoftDeleted)
     }
     
     func test_needsSync_동기화필요상태_true반환() {

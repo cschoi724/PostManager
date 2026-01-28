@@ -44,7 +44,7 @@ extension PostEntity {
         syncStatus = post.syncStatus.rawValue
         createdAt = post.createdAt
         updatedAt = post.updatedAt
-        isSoftDeleted = post.isDeleted
+        isSoftDeleted = post.isSoftDeleted
     }
     
     func toDomain() -> Post {
@@ -57,7 +57,7 @@ extension PostEntity {
             syncStatus: SyncStatus(rawValue: syncStatus) ?? .created,
             createdAt: createdAt,
             updatedAt: updatedAt,
-            isDeleted: isSoftDeleted
+            isSoftDeleted: isSoftDeleted
         )
     }
 }

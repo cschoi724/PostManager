@@ -23,9 +23,14 @@ public final class FetchDashboardUseCaseImpl: FetchDashboardUseCase {
         let postsNeedingSync = try await repository.fetchPostsNeedingSync()
         let recentPosts = try await repository.fetchRecentPosts(limit: 5)
         
-        let totalCount = allPosts.count
-        let offlineCreatedCount = allPosts.filter { $0.isLocalOnly }.count
-        let needsSyncCount = postsNeedingSync.count
+        // 전체 게시글: soft delete 되지 않은 로컬 기준
+        let totalCount = allPosts.filter { !$0.isSoftDeleted }.count
+        
+        // 오프라인 생성: 서버에 아직 반영되지 않은 created
+        let offlineCreatedCount = allPosts.filter { $0.syncStatus == .created }.count
+        
+        // 3동기화 필요: synced 가 아닌 모든 글 (soft delete 포함)
+        let needsSyncCount = postsNeedingSync.filter { $0.syncStatus != .synced }.count
         
         return DashboardSummary(
             totalCount: totalCount,
