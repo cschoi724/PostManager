@@ -16,6 +16,9 @@
 		3B993C302F24738B00C3387F /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B993C2D2F24738B00C3387F /* Post.swift */; };
 		3B993C342F2473AF00C3387F /* PostTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B993C312F2473AF00C3387F /* PostTests.swift */; };
 		3B993C352F2473AF00C3387F /* SyncStatusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B993C322F2473AF00C3387F /* SyncStatusTests.swift */; };
+		3B9EE9042F29AA1000CF17F9 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9EE9012F29AA1000CF17F9 /* CoreDataStack.swift */; };
+		3B9EE9052F29AA1000CF17F9 /* PostEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9EE9022F29AA1000CF17F9 /* PostEntity.swift */; };
+		3B9EE9082F29AA6800CF17F9 /* PostsModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3B9EE9062F29AA6800CF17F9 /* PostsModel.xcdatamodeld */; };
 		3BD85EF32F24878A004CEBDC /* PostsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD85EF12F24878A004CEBDC /* PostsRepository.swift */; };
 		3BD85EFD2F248E46004CEBDC /* FetchPostUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD85EF82F248E46004CEBDC /* FetchPostUseCase.swift */; };
 		3BD85EFE2F248E46004CEBDC /* FetchPostsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD85EF72F248E46004CEBDC /* FetchPostsUseCase.swift */; };
@@ -100,6 +103,9 @@
 		3B993C2E2F24738B00C3387F /* SyncStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncStatus.swift; sourceTree = "<group>"; };
 		3B993C312F2473AF00C3387F /* PostTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTests.swift; sourceTree = "<group>"; };
 		3B993C322F2473AF00C3387F /* SyncStatusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncStatusTests.swift; sourceTree = "<group>"; };
+		3B9EE9012F29AA1000CF17F9 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		3B9EE9022F29AA1000CF17F9 /* PostEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostEntity.swift; sourceTree = "<group>"; };
+		3B9EE9072F29AA6800CF17F9 /* PostsModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PostsModel.xcdatamodel; sourceTree = "<group>"; };
 		3BD85EF12F24878A004CEBDC /* PostsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsRepository.swift; sourceTree = "<group>"; };
 		3BD85EF42F248E46004CEBDC /* CreatePostUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostUseCase.swift; sourceTree = "<group>"; };
 		3BD85EF52F248E46004CEBDC /* DeletePostUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeletePostUseCase.swift; sourceTree = "<group>"; };
@@ -303,6 +309,32 @@
 			path = Domain;
 			sourceTree = "<group>";
 		};
+		3B9EE8FF2F29A9F400CF17F9 /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				3B9EE9032F29AA1000CF17F9 /* CoreData */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		3B9EE9002F29A9FB00CF17F9 /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				3BD85F852F276679004CEBDC /* PostsRemoteDataSource.swift */,
+			);
+			path = Remote;
+			sourceTree = "<group>";
+		};
+		3B9EE9032F29AA1000CF17F9 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				3B9EE9012F29AA1000CF17F9 /* CoreDataStack.swift */,
+				3B9EE9022F29AA1000CF17F9 /* PostEntity.swift */,
+				3B9EE9062F29AA6800CF17F9 /* PostsModel.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		3BD85EF22F24878A004CEBDC /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
@@ -469,7 +501,8 @@
 		3BD85F862F276679004CEBDC /* DataSources */ = {
 			isa = PBXGroup;
 			children = (
-				3BD85F852F276679004CEBDC /* PostsRemoteDataSource.swift */,
+				3B9EE9002F29A9FB00CF17F9 /* Remote */,
+				3B9EE8FF2F29A9F400CF17F9 /* Local */,
 			);
 			path = DataSources;
 			sourceTree = "<group>";
@@ -652,6 +685,8 @@
 				3BD85F362F249C55004CEBDC /* AppDIContainer.swift in Sources */,
 				3B70E6102F245E890052E385 /* AppDelegate.swift in Sources */,
 				3BD85EFD2F248E46004CEBDC /* FetchPostUseCase.swift in Sources */,
+				3B9EE9042F29AA1000CF17F9 /* CoreDataStack.swift in Sources */,
+				3B9EE9052F29AA1000CF17F9 /* PostEntity.swift in Sources */,
 				3BD85F652F271645004CEBDC /* PostsListView.swift in Sources */,
 				3BD85F872F276679004CEBDC /* PostsRemoteDataSource.swift in Sources */,
 				3BD85F662F271645004CEBDC /* PostCell.swift in Sources */,
@@ -678,6 +713,7 @@
 				3BD85F412F249E4B004CEBDC /* PostsRepositoryImpl.swift in Sources */,
 				3BD85F752F274D8D004CEBDC /* NetworkClient.swift in Sources */,
 				3BD85F4C2F26FF25004CEBDC /* PostsListViewModel.swift in Sources */,
+				3B9EE9082F29AA6800CF17F9 /* PostsModel.xcdatamodeld in Sources */,
 				3BD85F422F249E4B004CEBDC /* NetworkMonitorImpl.swift in Sources */,
 				3BD85F062F248E64004CEBDC /* DashboardSummary.swift in Sources */,
 				3BD85F842F275FB1004CEBDC /* PostDTO.swift in Sources */,
@@ -1115,6 +1151,19 @@
 			productName = RxTest;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		3B9EE9062F29AA6800CF17F9 /* PostsModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3B9EE9072F29AA6800CF17F9 /* PostsModel.xcdatamodel */,
+			);
+			currentVersion = 3B9EE9072F29AA6800CF17F9 /* PostsModel.xcdatamodel */;
+			path = PostsModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3B70E5CA2F245E800052E385 /* Project object */;
 }

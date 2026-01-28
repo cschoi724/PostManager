@@ -38,8 +38,11 @@ public final class AppDIContainer {
             object: nil,
             queue: .main
         ) { [weak self] _ in
-            Task {
-                try? await self?.makeSyncPostsUseCase()()
+            Task { [weak self] in
+                guard let self else { return }
+
+                let sync = await self.makeSyncPostsUseCase()
+                try? await sync()
             }
         }
     }
