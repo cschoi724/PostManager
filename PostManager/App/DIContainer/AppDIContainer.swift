@@ -21,9 +21,18 @@ public final class AppDIContainer {
         NetworkMonitorImpl()
     }()
     
+    private lazy var coreDataStack: CoreDataStack = {
+        CoreDataStack(name: "PostsModel")
+    }()
+    
+    private lazy var postsLocalDataSource: PostsLocalDataSource = {
+        CoreDataPostsLocalDataSource(coreDataStack: coreDataStack)
+    }()
+    
     private lazy var postsRepository: PostsRepository = {
         PostsRepositoryImpl(
             remoteDataSource: postsRemoteDataSource,
+            localDataSource: postsLocalDataSource,
             networkMonitor: networkMonitor
         )
     }()
